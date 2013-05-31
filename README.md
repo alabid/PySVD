@@ -16,8 +16,8 @@ Smaller:
 * Compare contrast results/approaches.
 
 
-Paper: Funk SVD Method
-======================
+Paper: Regularized SVD Method
+=============================
 * State the problem: Rank-k approximation. Why useful? How?
    
 *  Intro.: Current approaches. Problems with current approaches.
