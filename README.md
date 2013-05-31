@@ -19,6 +19,7 @@ Smaller:
 Paper: Regularized SVD Method
 =============================
 * State the problem: Rank-k approximation. Why useful? How?
+  Method of research.
    
 *  Intro.: Current approaches. Problems with current approaches.
    SVD approach? Not scalable.
@@ -28,6 +29,12 @@ Paper: Regularized SVD Method
    How we understood the article.
    How we dug deep into the article. 
    What other articles told us about Simon Funk's approach.
+   Variables:
+   i) k
+   ii) learning rate -- vary as we increase? or as we decrease?
+   iii) regularize?
+   iv) Method of visitation
+
 
 *  Experimental setup: RMSE calculation as a prediction. Why?
 
@@ -41,8 +48,9 @@ Paper: Regularized SVD Method
    Why did we decide to use these methods as controls?
 
 *  Present results:
-   RMSE comparison for 3 methods for different k.
-   Time comparison for 3 methods for different k.
+   RMSE comparison for 2 methods for different k.
+   Time comparison for 2 methods for different k.
+   RMSE comparison for different variables.
    
 * Conclusion:
    What have you found so far using the movie dataset.
