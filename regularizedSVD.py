@@ -6,8 +6,8 @@ import time
 
 class SvdMatrix:
     def __init__(self, trainfile, nusers, nmovies, r):
-        self.M = [[None]*nmovies]*nusers
-        self.Mtest = [[None]*nmovies]*nusers
+        self.M = [[None]*nmovies for i in range(nusers)]
+        self.Mtest = [[None]*nmovies for i in range(nusers)]
 
         self.Up = None
         self.Vp = None
@@ -114,9 +114,9 @@ class SvdMatrix:
         nusers = self.nusers
         nmovies = self.nmovies
 
-        for i in range(nusers):
-            for j in range(nmovies):
-                self.Mtest[i][j] = self.M[i][j]
+        # for i in range(nusers):
+        #   for j in range(nmovies):
+        #     self.Mtest[i][j] = self.M[i][j]
 
         f = open(fname)
 
@@ -127,10 +127,8 @@ class SvdMatrix:
         
                                                
 if __name__ == "__main__":
-    f = open("ua.base")
-
     init = time.time()
-    svd = SvdMatrix("ua.base", 943, 1682, 19)
+    svd = SvdMatrix("ua.base", 943, 1682, 10)
     svd.train(.001, 0.01)
     print "took: ", time.time()-init
 
@@ -138,3 +136,5 @@ if __name__ == "__main__":
     svd.test("ua.test")
     print svd.calcrmse(svd.Mtest)
 
+# 2.76364392142
+# 2.7689925966
