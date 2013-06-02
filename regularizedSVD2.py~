@@ -2,18 +2,15 @@
 
 import math
 import random
-import time
 
 class SvdMatrix:
     def __init__(self, trainfile, nusers, nmovies, r):
         self.M = [[None]*nmovies]*nusers
-        self.Mtest = [[None]*nmovies]*nusers
-
-        self.Up = None
-        self.Vp = None
+        self.Up = [[None]*r]*nusers
+        self.Vp = [[None]*r]*nmovies
         self.r = r
         self.lrate = 0.001
-        self.regularizer = 0.015
+        self.regularizer = 0.02
         self.nusers = nusers
         self.nmovies = nmovies
 
@@ -26,14 +23,29 @@ class SvdMatrix:
             newline = [int(each) for each in line.split("\t")]
             userid, movieid, rating = newline[0], newline[1], newline[2]
             self.M[userid-1][movieid-1] = rating
+
+    # returns the value of this matrix at the specified row
+    # and column
+    def value(self, row, column):
+        rVec = self.Up[row]
+        cVec = self.Vp[column]
+        return sum([rVec[i]*cVec[i] for i in range(len(rVec))])
+
+    def magnitudeCol(self, arr, col):
+        return sum([arr[i][col]**2 for i in range(len(arr))])
+
+    # returns the array of singular values for this
+    # decomposition
+    def singularValues(self):
+        return [self.singularValue(i) for i in range(self.r)]
+    
+    # d -> dimension of singular value
+    def singularValue(self, d):
+        return self.magnitudeCol(self.Up, d) * \
+            self.magnitudeCol(self.Vp, d)
             
     def predict(self, i, j, rVector, cVector, cacheEntry):
-        p = cacheEntry + rVector[i] * cVector[j]
-        if p > 5: 
-            p = 5
-        elif p < 1:
-            p = 1
-        return p
+        return cacheEntry + rVector[i] * cVector[j]
 
     def relDiff(self, x, y):
         return abs(x-y)/(abs(x)+abs(y))
@@ -42,7 +54,7 @@ class SvdMatrix:
         nusers = self.nusers
         nmovies = self.nmovies
         # number of entries in matrix
-        nEntries = nusers * nmovies
+        nEntries = self.nusers * nmovies
 
         cache = [[0.0]*nmovies]*nusers
 
@@ -86,55 +98,16 @@ class SvdMatrix:
             for i in range(nusers):
                 for j in range(nmovies):
                     cache[i][j] = self.predict(i, j, rVector, cVector, cache[i][j])
+                    print "cache[i][j]=", cache[i][j]
 
-        self.Up = rVectors
-        self.Vp = cVectors
-
-    def calcrating(self, uid, mid):
-        p = sum([self.Up[i][uid]*self.Vp[i][mid] for i in range(self.r)])
-        if p > 5:
-            p = 5
-        elif p < 1:
-            p = 1
-        return p
-
-    def calcrmse(self, arr):
-        nusers = self.nusers
-        nmovies = self.nmovies
-        sse = 0.0
-        total = 0
-        for i in range(nusers):
-            for j in range(nmovies):
-                if arr[i][j] == None: continue
-                total += 1
-                sse += (arr[i][j] - self.calcrating(i, j))**2
-        return math.sqrt(sse/total)
-
-    def test(self, fname):
-        nusers = self.nusers
-        nmovies = self.nmovies
-
-        for i in range(nusers):
-            for j in range(nmovies):
-                self.Mtest[i][j] = self.M[i][j]
-
-        f = open(fname)
-
-        for line in f:
-            newline = [int(each) for each in line.split("\t")]
-            userid, movieid, rating = newline[0], newline[1], newline[2]
-            self.Mtest[userid-1][movieid-1] = rating                    
-        
+                                    
                                                
 if __name__ == "__main__":
     f = open("ua.base")
 
-    init = time.time()
-    svd = SvdMatrix("ua.base", 943, 1682, 19)
+    svd = SvdMatrix("ua.base", 943, 1682, 20)
     svd.train(.001, 0.01)
-    print "took: ", time.time()-init
 
-    print svd.calcrmse(svd.M)
-    svd.test("ua.test")
-    print svd.calcrmse(svd.Mtest)
+
+
 
