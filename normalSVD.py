@@ -32,14 +32,14 @@ class SvdMatrix:
             nm = 0
             missmovies = []
             for movieid in range(nmovies):
-                if self.M[userid-1][movieid-1] == None: 
+                if self.M[userid][movieid] == None: 
                     missmovies.append(movieid)
                     continue
-                avg += self.M[userid-1][movieid-1] 
+                avg += self.M[userid][movieid] 
                 nm += 1
             avg = float(avg)/nm
             for movieid in missmovies:
-                self.M[userid-1][movieid-1] = avg
+                self.M[userid][movieid] = avg
             
         self.M = np.matrix(self.M)
 
