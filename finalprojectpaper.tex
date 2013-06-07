@@ -1,11 +1,52 @@
 \documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
 \begin{document}
 \noindent \textbf{Daniel Alabi} \\
 \textbf{Cody Wang}
 \hfill
 \textbf{CS 324}\\
-\line(1, 0){450}
+\line(1, 0){450} 
+
+\subsection*{Regularized SVD}
+
+In class, we talked about the iterative SVD technique described in the book.
+We also talked briefly about how to avoid overfitting; one way to avoid
+overfitting is to use regularization [1]. \\
+
+\noindent For the netflix prize competition, Simon Funk implemented a regularized 
+iterative SVD technique to predict movie ratings for users [2]. The goal of our
+project was to implement a regularized iterative SVD technique, similar
+to Simon Funk's. After Simon Funk wrote the article describing his
+SVD technique(s), a lot of other data scientists and researchers
+have tried to implement his approach. As a result, there is no homogenous
+regularized SVD technique. One thing that most of these techniques (including
+Simon Funk's) have in common is that they make use of a stochastic 
+gradient descent technique to minimize the RMSE [3, 4]. Stochastic gradient 
+descent is basically an iterative way to find a local minima of a function[5]. In our
+case, the function to be minimized is the RMSE.
+
+
+
+
+\subsubsection*{Varying the Parameters}
+
+\subsubsection*{Control Experiments}
+
+\subsubsection*{Method of Research and Future Work}
+\begin{enumerate}
+\item Cache.
+\item Average ratings.
+\end{enumerate}
+
+\subsubsection*{References}
+\begin{enumerate}
+  \item http://en.wikipedia.org/wiki/Regularization\_(mathematics)
+  \item http://sifter.org/~simon/Journal/20061211.html
+  \item http://www.timelydevelopment.com/demos/NetflixPrize.aspx
+  \item http://alias-i.com/lingpipe/docs/api/com/aliasi/matrix/SvdMatrix.html
+  \item http://en.wikipedia.org/wiki/Stochastic_gradient_descent
+\end{enumerate}
 
 \end{document}
-
-
