@@ -18,7 +18,7 @@ if __name__ == "__main__":
     ydata = np.array(times)    
     
 
-    plt.xlabel("k-values")
+    plt.xlabel("rank")
     plt.ylabel("time used")
 
     xnew = np.linspace(xdata.min(), xdata.max(), len(kvalues)*1)
@@ -30,7 +30,7 @@ if __name__ == "__main__":
     
     # ========= Code to Plot time against regularizers ========= #
     f = open("regularizertime2")
-    regularizers = [i*0.001 for i in range(1,51)]
+    regularizers = [i*0.001 for i in range(50, 101)]
     lines = f.readlines()
     line1 = lines[0].split('\t')
     times = [float(line1[i]) for i in range(0, len(line1)-1)]
@@ -51,7 +51,7 @@ if __name__ == "__main__":
     
     # ========= Code to Plot time against lrates ========= #
     f2 = open("lratetime2")
-    lrate = [i*0.0005 for i in range(1, 51)]
+    lrate = [i*0.0005 for i in range(50, 101)]
     lines = f2.readlines()
     line1 = lines[0].split('\t')
     times = [float(line1[i]) for i in range(0, len(line1)-1)]
@@ -83,7 +83,7 @@ if __name__ == "__main__":
     y1data = np.array(rmsetrain)    
     y2data = np.array(rmsetest)
 
-    plt.xlabel("k-values")
+    plt.xlabel("rank")
     plt.ylabel("rmse of data (red: trainingset; blue: testset)")
 
     xnew = np.linspace(xdata.min(), xdata.max(), len(kvalues)*1)
@@ -97,7 +97,7 @@ if __name__ == "__main__":
 
     # ========= Code to Plot rmse against regularizers ========= #
     f2 = open("regularizertest2")
-    regularizers = [i*0.001 for i in range(1,51)]
+    regularizers = [i*0.001 for i in range(50, 101)]
     lines = f2.readlines()
     line1 = lines[0].split('\t')
     rmsetrain = [float(line1[i]) for i in range(0, len(line1)-1)]
@@ -123,7 +123,7 @@ if __name__ == "__main__":
 
     # ========= Code to Plot rmse against lrate ========= # 
     f3 = open("lratetest2")
-    lrate = [i*0.0005 for i in range(1, 51)]
+    lrate = [i*0.0005 for i in range(50, 101)]
     lines = f3.readlines()
     line1 = lines[0].split('\t')
     rmsetrain = [float(line1[i]) for i in range(0, len(line1)-1)]
