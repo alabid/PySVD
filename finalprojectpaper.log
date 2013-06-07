@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  7 JUN 2013 17:23
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  7 JUN 2013 17:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -123,31 +123,43 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--17
 
  []
 
+LaTeX Font Info:    Try loading font information for U+msa on input line 34.
+(/Software/lion-local/texlive/2011/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2009/06/22 v3.00 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 34.
 
-Overfull \hbox (13.60414pt too wide) in paragraph at lines 48--49
+(/Software/lion-local/texlive/2011/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2009/06/22 v3.00 AMS symbols B
+)
+[1
+
+{/Software/lion-local/texlive/2011/texmf-var/fonts/map/pdftex/updmap/pdftex.map
+}]
+Overfull \hbox (13.60414pt too wide) in paragraph at lines 63--64
 []\OT1/cmr/m/n/12 http://alias-i.com/lingpipe/docs/api/com/aliasi/matrix/SvdMat
 rix.html 
  []
 
-[1
-
-{/Software/lion-local/texlive/2011/texmf-var/fonts/map/pdftex/updmap/pdftex.map
-}] (./finalprojectpaper.aux) ) 
+[2] (./finalprojectpaper.aux) ) 
 Here is how much of TeX's memory you used:
- 860 strings out of 493633
- 10047 string characters out of 3143378
- 61635 words of memory out of 3000000
- 4222 multiletter control sequences out of 15000+200000
- 4850 words of font info for 18 fonts, out of 3000000 for 9000
+ 902 strings out of 493633
+ 10718 string characters out of 3143378
+ 62635 words of memory out of 3000000
+ 4245 multiletter control sequences out of 15000+200000
+ 9197 words of font info for 35 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
- 27i,4n,22p,234b,111s stack positions out of 5000i,500n,10000p,200000b,50000s
-</Software/lion-local/texlive/2011/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmbx12.pfb></Software/lion-local/texlive/2011/texmf
--dist/fonts/type1/public/amsfonts/cm/cmr12.pfb>
-Output written on finalprojectpaper.pdf (1 page, 34899 bytes).
+ 27i,4n,22p,234b,186s stack positions out of 5000i,500n,10000p,200000b,50000s
+</Software/lion-local/texlive/2011/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmbx12.pfb></Software/lion-local/texlive/2011/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></Software/lion-local/texlive/
+2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></Software/lion-local/
+texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></Software/lio
+n-local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on finalprojectpaper.pdf (2 pages, 60219 bytes).
 PDF statistics:
- 16 PDF objects out of 1000 (max. 8388607)
- 10 compressed objects within 1 object stream
+ 31 PDF objects out of 1000 (max. 8388607)
+ 21 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

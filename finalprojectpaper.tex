@@ -24,11 +24,26 @@ have tried to implement his approach. As a result, there is no homogenous
 regularized SVD technique. One thing that most of these techniques (including
 Simon Funk's) have in common is that they make use of a stochastic 
 gradient descent technique to minimize the RMSE [3, 4]. Stochastic gradient 
-descent is basically an iterative way to find a local minima of a function[5]. In our
-case, the function to be minimized is the RMSE.
+descent is basically an iterative way to find a local minima of a 
+function[5]. In our case, the function to be minimized is the RMSE.
 
+\subsubsection*{Training the U, V matrices}
 
+The crux of the regularized SVD technique we implemented lies in how
+the U, V matrices are trained. Recall that, we are trying to ``approximate''
+the utility matrix $M$ with two matrices such that
+\begin{equation*}
+  M \approx U * V^T
+\end{equation*}
+Note that the singular values of the decomposition have been submerged into
+both $U$ and $V^T$. Also, in the algorithm we implemented, instead of 
+explicitly storing $V^T$, we store $V$ to make the training step more
+seamless.
 
+Training of the $U$ and $V^T$ matrices occurs exactly $r$ times. $r$ is the
+rank of the matrix $U*V^T$, or equivalently the number of columns in
+$U$, or the number of rows in $V^T$. For each $k$ in $[0, r-1]$, we
+consider $U[k$
 
 \subsubsection*{Varying the Parameters}
 
@@ -46,7 +61,7 @@ case, the function to be minimized is the RMSE.
   \item http://sifter.org/~simon/Journal/20061211.html
   \item http://www.timelydevelopment.com/demos/NetflixPrize.aspx
   \item http://alias-i.com/lingpipe/docs/api/com/aliasi/matrix/SvdMatrix.html
-  \item http://en.wikipedia.org/wiki/Stochastic_gradient_descent
+  \item http://en.wikipedia.org/wiki/Stochastic\_gradient\_descent
 \end{enumerate}
 
 \end{document}
