@@ -38,9 +38,12 @@ class SvdMatrix:
     typefile -> 0 if for smaller MovieLens dataset
                 1 if for medium or larger MovieLens dataset
     """
-    def __init__(self, trainfile, nusers, nmovies, r=10, lrate=0.035, regularizer=0.05, typefile=0):
+    def __init__(self, trainfile, nusers, nmovies, r=10, lrate=0.035, regularizer=0.05, typefile=1):
         self.trainrats = []
         self.testrats = []
+        # self.M = [[None]*nmovies for i in range(nusers)]
+        # self.Mtest = [[None]*nmovies for i in range(nusers)]
+
                 
         self.nusers = nusers
         self.nmovies = nmovies
@@ -169,6 +172,7 @@ class SvdMatrix:
             userid, movieid, rating = newline[0], newline[1], newline[2]
             arr.append(Rating(userid, movieid, rating))
 
+        arr = sorted(arr, key=lambda rating: (rating.uid, rating.mid))
         return len(arr)
         
     """
