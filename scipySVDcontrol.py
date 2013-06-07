@@ -25,7 +25,7 @@ class SvdMatrix:
         # average for absent
         f = open(trainfile)
         for line in f:
-            newline = line.split("\t")
+            newline = line.split("::")
             userid, movieid, rating = int(newline[0]), int(newline[1]), int(newline[2])
             self.M[userid-1][movieid-1] = rating
         for userid in range(nusers):
@@ -99,11 +99,11 @@ class SvdMatrix:
                                                
 if __name__ == "__main__":
     init = time.time()
-    svdM = SvdMatrix("ua.base", 943, 1682)
+    svdM = SvdMatrix("ratings.dat", 6040, 3952)
     svdM.train()
     print "rmse of trainset: ", svdM.calcrmsetrain()
-    svdM.test("ua.test")
-    print "rmse of testset: ", svdM.calcrmsetest(svdM.Mtest)
+    #svdM.test("ua.test")
+    #print "rmse of testset: ", svdM.calcrmsetest(svdM.Mtest)
     print "time used: ", time.time()-init
 
 
