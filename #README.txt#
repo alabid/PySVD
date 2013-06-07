@@ -1,8 +1,0 @@
-Regularized SVD (Singular Value Decomposition) 
-==============================================
-Our project was to implement regularized SVD in pythonbn, as suggested by Simon
-Funk and others [1].
-
-
-[1]
-
