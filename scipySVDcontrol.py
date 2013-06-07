@@ -3,6 +3,7 @@
 import math
 from scipy.linalg import *
 import numpy as np
+import time
 
 np.set_printoptions(precision=3)
 np.set_printoptions(suppress=True)
@@ -65,17 +66,15 @@ class SvdMatrix:
         while e < e80:
             e += Sd[c]
             c += 1
-        print c
 
         Uhat =  np.matrix(np.copy(U)[:, 0:c])
         Sdhat = np.copy(Sd)[0:c]
         Vthat = np.matrix(np.copy(Vt)[0:c, :])
         
         self.Ahat = Uhat * np.diag(Sdhat) * Vthat        
-        print self.Ahat 
-        print self.Ahat.shape
+    
 
-    def calcrmse(self, arr):
+    def calcrmsetest(self, arr):
         nusers = self.nusers
         nmovies = self.nmovies
         sse = 0.0
@@ -83,17 +82,29 @@ class SvdMatrix:
         for i in range(nusers):
             for j in range(nmovies):
                 if arr[i][j] == None: continue
-
                 total += 1
                 sse += (arr[i][j] - self.Ahat[i, j])**2
         return math.sqrt(sse/total)
-        
+
+    def calcrmsetrain(self):
+        nusers = self.nusers
+        nmovies = self.nmovies
+        sse = 0.0
+        total = 0
+        for i in range(nusers):
+            for j in range(nmovies):
+                total += 1
+                sse += (self.M[i, j] - self.Ahat[i, j])**2
+        return math.sqrt(sse/total)
                                                
 if __name__ == "__main__":
+    init = time.time()
     svdM = SvdMatrix("ua.base", 943, 1682)
     svdM.train()
+    print "rmse of trainset: ", svdM.calcrmsetrain()
     svdM.test("ua.test")
-    print svdM.calcrmse(svdM.Mtest)
+    print "rmse of testset: ", svdM.calcrmsetest(svdM.Mtest)
+    print "time used: ", time.time()-init
 
 
 

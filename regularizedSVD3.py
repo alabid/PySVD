@@ -12,11 +12,20 @@ import math
 import random
 import time
 
+"""
+Rating class. 
+Store every rating associated with a particular
+userid and movieid.
+================Optimization======================
+"""
 class Rating:
     def __init__(self, userid, movieid, rating):
-        self.uid = userid-1 # to accomodate zero-indexing for matrices
-        self.mid = movieid-1 # to accommodate zero-indexing for matrices
-        self.rating = rating
+        # to accomodate zero-indexing for matrices
+        self.uid = userid-1 
+        self.mid = movieid-1
+
+        self.rat = rating
+
 
 class SvdMatrix:
     """
@@ -30,10 +39,11 @@ class SvdMatrix:
                 1 if for medium or larger MovieLens dataset
     """
     def __init__(self, trainfile, nusers, nmovies, r=10, lrate=0.035, regularizer=0.05, typefile=1):
-        self.trainratings = []
-        self.testratings = []
+        self.trainrats = []
+        self.testrats = []
         # self.M = [[None]*nmovies for i in range(nusers)]
         # self.Mtest = [[None]*nmovies for i in range(nusers)]
+
                 
         self.nusers = nusers
         self.nmovies = nmovies
@@ -84,8 +94,8 @@ class SvdMatrix:
     def averagerating(self):
         avg = 0
         n = 0
-        for i in range(len(self.trainratings)):
-            avg += self.trainratings[i].rating
+        for i in range(len(self.trainrats)):
+            avg += self.trainrats[i].rat
             n += 1
         return float(avg/n)
 
@@ -104,10 +114,10 @@ class SvdMatrix:
     def train(self, k):
         sse = 0.0
         n = 0
-        for i in range(len(self.trainratings)):
+        for i in range(len(self.trainrats)):
             # get current rating
-            crating = self.trainratings[i]
-            err = crating.rating - self.predict(crating.uid, crating.mid)
+            crating = self.trainrats[i]
+            err = crating.rat - self.predict(crating.uid, crating.mid)
             sse += err**2
             n += 1
 
@@ -121,7 +131,7 @@ class SvdMatrix:
     """
     Trains the entire U matrix and the entire V (and V^T) matrix
     """
-    def trainratings1(self):        
+    def trainratings(self):        
         # stub -- initial train error
         oldtrainerr = 1000000.0
        
@@ -146,7 +156,7 @@ class SvdMatrix:
         total = 0
         for i in range(len(arr)):
             crating = arr[i]
-            sse += (crating.rating - self.calcrating(crating.uid, crating.mid))**2
+            sse += (crating.rat - self.calcrating(crating.uid, crating.mid))**2
             total += 1
         return math.sqrt(sse/total)
 
@@ -169,23 +179,22 @@ class SvdMatrix:
     Read in the smaller train dataset
     """
     def readtrainsmaller(self, fname):
-        return self.readinratings(fname, self.trainratings, splitter="\t")
+        return self.readinratings(fname, self.trainrats, splitter="\t")
         
     """
     Read in the large train dataset
     """
     def readtrainlarger(self, fname):
-        return self.readinratings(fname, self.trainratings, splitter="::")
+        return self.readinratings(fname, self.trainrats, splitter="::")
         
     """
     Read in the smaller test dataset
     """
     def readtestsmaller(self, fname):
-        return self.readinratings(fname, self.testratings, splitter="\t")
+        return self.readinratings(fname, self.testrats, splitter="\t")
                 
     """
     Read in the larger test dataset
     """
     def readtestlarger(self, fname):
-        return self.readinratings(fname, self.testratings, splitter="::")
-                  
+        return self.readinratings(fname, self.testrats, splitter="::")
