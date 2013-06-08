@@ -1,24 +1,24 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  7 JUN 2013 17:47
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  7 JUN 2013 19:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **finalprojectpaper.tex
 (./finalprojectpaper.tex
-LaTeX2e <2009/09/24>
-Babel <v3.8l> and hyphenation patterns for english, dumylang, nohyphenation, ge
-rman-x-2009-06-19, ngerman-x-2009-06-19, afrikaans, ancientgreek, ibycus, arabi
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, ge
+rman-x-2012-05-30, ngerman-x-2012-05-30, afrikaans, ancientgreek, ibycus, arabi
 c, armenian, basque, bulgarian, catalan, pinyin, coptic, croatian, czech, danis
 h, dutch, ukenglish, usenglishmax, esperanto, estonian, ethiopic, farsi, finnis
-h, french, galician, german, ngerman, swissgerman, monogreek, greek, hungarian,
- icelandic, assamese, bengali, gujarati, hindi, kannada, malayalam, marathi, or
-iya, panjabi, tamil, telugu, indonesian, interlingua, irish, italian, kurmanji,
- lao, latin, latvian, lithuanian, mongolian, mongolianlmc, bokmal, nynorsk, pol
-ish, portuguese, romanian, russian, sanskrit, serbian, serbianc, slovak, sloven
-ian, spanish, swedish, turkish, turkmen, ukrainian, uppersorbian, welsh, loaded
-.
-(/Software/lion-local/texlive/2011/texmf-dist/tex/latex/base/article.cls
+h, french, friulan, galician, german, ngerman, swissgerman, monogreek, greek, h
+ungarian, icelandic, assamese, bengali, gujarati, hindi, kannada, malayalam, ma
+rathi, oriya, panjabi, tamil, telugu, indonesian, interlingua, irish, italian, 
+kurmanji, latin, latvian, lithuanian, mongolian, mongolianlmc, bokmal, nynorsk,
+ polish, portuguese, romanian, romansh, russian, sanskrit, serbian, serbianc, s
+lovak, slovenian, spanish, swedish, turkish, turkmen, ukrainian, uppersorbian, 
+welsh, loaded.
+(/usr/local/texlive/2012/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
-(/Software/lion-local/texlive/2011/texmf-dist/tex/latex/base/size12.clo
+(/usr/local/texlive/2012/texmf-dist/tex/latex/base/size12.clo
 File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -33,24 +33,24 @@ File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-(/Software/lion-local/texlive/2011/texmf-dist/tex/latex/amsmath/amsmath.sty
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2000/07/18 v2.13 AMS math features
 \@mathmargin=\skip43
 
 For additional information on amsmath, use the `?' option.
-(/Software/lion-local/texlive/2011/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01
 
-(/Software/lion-local/texlive/2011/texmf-dist/tex/latex/amsmath/amsgen.sty
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks14
 \ex@=\dimen103
 ))
-(/Software/lion-local/texlive/2011/texmf-dist/tex/latex/amsmath/amsbsy.sty
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d
 \pmbraise@=\dimen104
 )
-(/Software/lion-local/texlive/2011/texmf-dist/tex/latex/amsmath/amsopn.sty
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count87
@@ -91,7 +91,7 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 LaTeX Info: Redefining \[ on input line 2666.
 LaTeX Info: Redefining \] on input line 2667.
 )
-(/Software/lion-local/texlive/2011/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
@@ -124,39 +124,37 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--17
  []
 
 LaTeX Font Info:    Try loading font information for U+msa on input line 34.
-(/Software/lion-local/texlive/2011/texmf-dist/tex/latex/amsfonts/umsa.fd
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 34.
 
-(/Software/lion-local/texlive/2011/texmf-dist/tex/latex/amsfonts/umsb.fd
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
-)
-[1
+) [1
 
-{/Software/lion-local/texlive/2011/texmf-var/fonts/map/pdftex/updmap/pdftex.map
-}]
-Overfull \hbox (13.60414pt too wide) in paragraph at lines 63--64
+{/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Overfull \hbox (13.60414pt too wide) in paragraph at lines 66--67
 []\OT1/cmr/m/n/12 http://alias-i.com/lingpipe/docs/api/com/aliasi/matrix/SvdMat
 rix.html 
  []
 
 [2] (./finalprojectpaper.aux) ) 
 Here is how much of TeX's memory you used:
- 902 strings out of 493633
- 10718 string characters out of 3143378
- 62635 words of memory out of 3000000
- 4245 multiletter control sequences out of 15000+200000
+ 901 strings out of 493488
+ 10438 string characters out of 3141326
+ 62801 words of memory out of 3000000
+ 4252 multiletter control sequences out of 15000+200000
  9197 words of font info for 35 fonts, out of 3000000 for 9000
- 831 hyphenation exceptions out of 8191
+ 957 hyphenation exceptions out of 8191
  27i,4n,22p,234b,186s stack positions out of 5000i,500n,10000p,200000b,50000s
-</Software/lion-local/texlive/2011/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmbx12.pfb></Software/lion-local/texlive/2011/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></Software/lion-local/texlive/
-2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></Software/lion-local/
-texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></Software/lio
-n-local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on finalprojectpaper.pdf (2 pages, 60219 bytes).
+</usr/local/texlive/2012/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmr12.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmsy10.pfb>
+Output written on finalprojectpaper.pdf (2 pages, 60356 bytes).
 PDF statistics:
  31 PDF objects out of 1000 (max. 8388607)
  21 compressed objects within 1 object stream
