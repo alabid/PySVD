@@ -38,7 +38,7 @@ class SvdMatrix:
     typefile -> 0 if for smaller MovieLens dataset
                 1 if for medium or larger MovieLens dataset
     """
-    def __init__(self, trainfile, nusers, nmovies, r=10, lrate=0.035, regularizer=0.05, typefile=1):
+    def __init__(self, trainfile, nusers, nmovies, r=30, lrate=0.035, regularizer=0.01, typefile=0):
         self.trainrats = []
         self.testrats = []
         # self.M = [[None]*nmovies for i in range(nusers)]
@@ -198,3 +198,12 @@ class SvdMatrix:
     """
     def readtestlarger(self, fname):
         return self.readinratings(fname, self.testrats, splitter="::")
+
+if __name__ == "__main__":
+    init = time.time()
+    svd = SvdMatrix("ua.base", 943, 1682)
+    svd.trainratings()
+    print "rmsetrain: ", svd.calcrmse(svd.trainrats)
+    svd.readtestsmaller("ua.test")
+    print "rmsetest: ", svd.calcrmse(svd.testrats)
+    print "time: ", time.time()-init

@@ -1,6 +1,8 @@
 \documentclass[12pt]{article}
 \usepackage{amsmath}
 \usepackage{amsfonts}
+\usepackage[pdftex]{graphicx}
+\usepackage{float}
 
 \begin{document}
 \noindent \textbf{Daniel Alabi} \\
@@ -28,11 +30,176 @@ descent is basically an iterative way to find a local minima of a function[5]. I
 case, the function to be minimized is the RMSE.
 
 
-
-
 \subsubsection*{Varying the Parameters}
 
+In order to explore the effectiveness of the regularized SVD technique and find
+the optimal efficiency for the algorithm, we ran various tests to analyze how the
+RMSE and the running time is correlated with three different parameters: the
+rank of the matrix (r), the learning rate (lr), and the regularzier (reg).\\
+
+\noindent We used the 100k and 1M datasets obtained from MovieLens [6] to perform our anlyses.
+We first set the default values of the r, lr, and reg to be 10, 0.035, and 0.05,
+respectively, which were the values that produced more efficient and accurate
+results based on the preliminary trail runs. We then controlled two of the three
+parameters while varying one to explore its effect on RMSE and running time of
+the algorithm.\\
+
+\noindent For the 100k dataset, we plotted RMSE and running time of both the training dataset
+and the test dataset against r$\in$[0, 1, 2,..., 50], lr$\in$[0.005, 0.01, 0.015,..., 0.25], 
+and reg$\in$[0.001, 0.002, 0.003,..., 0.05].\\
+
+\noindent For the 1M dataset, we plotted RMSE and running time of training dataset 
+against r$\in$[10, 11, 12,..., 30], lr$\in$[0.005, 0.01, 0.015,..., 0.1], and
+reg$\in$[0.001, 0.002, 0.003,..., 0.02].\\
+
+\noindent Figure 1-3 show the relationship between the running time and the three parameters
+for the 100k dataset. Running time is the sum of both the running time for the training and
+the test datasets. \\
+
+\noindent Figure 1 indicates that the running time is positively correlated
+with the matrix rank. Figure 2 indicates that the there is no significant relationship between
+running time and the learning rate, but the running time generally increases when lr$\geq$0.15.
+Figure 3 shows that there is no significant relationship between running time and
+the regularizer.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.90\textwidth]{smalltimerank.png}
+\caption{Relationship between running time and matrix rank for 100k dataset}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.90\textwidth]{smalltimelr.png}
+\caption{Relationship between running time and learning rate for 100k dataset}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.90\textwidth]{smalltimereg.png}
+\caption{Relationship between running time and regularizer for 100k dataset}
+\end{figure}
+
+\noindent Figure 4-6 show the relationship between the RMSE and the three parameters
+for the 100k dataset. Blue dotted lines and red dashed lines represent the RMSE for
+the test and the training datasets, respectively.\\
+
+\noindent Figure 4 indicates that the RMSE is generally negatively correlated
+with the matrix rank. Figure 5 indicates that the there is a positive correlation
+between the RMSE and the learning rate. Figure 6 shows that there is no significant 
+relationship between running time and the regularizer for the training dataset. However,
+for the test dataset, there is a trend that as regularizer increases, the RMSE increases.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.90\textwidth]{smallrmserank.png}
+\caption{Relationship between RMSE and matrix rank for 100k dataset}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.90\textwidth]{smallrmselr.png}
+\caption{Relationship between RMSE and learning rate for 100k dataset}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.90\textwidth]{smallrmsereg.png}
+\caption{Relationship between RMSE and regularizer for 100k dataset}
+\end{figure}
+
+\noindent Figure 7-9 show the relationship between the running time and the three parameters
+for the 1M dataset.\\
+
+\noindent Figure 7 indicates a positive correlation between the running time
+and the matrix rank. Figure 8 indicates that when lr$\leq$0.02, time decreases
+as lr increases, but there is no significant relationship between the two after that point.
+Figure 9 shows that running time is generally negatively correlated with the regularizer.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.90\textwidth]{bigtimerank.png}
+\caption{Relationship between running time and matrix rank for 1M dataset}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.90\textwidth]{bigtimelr.png}
+\caption{Relationship between running time and learning rate for 1M dataset}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.90\textwidth]{bigtimereg.png}
+\caption{Relationship between running time and regularizer for 100k dataset}
+\end{figure}
+
+\noindent Figure 10-12 show the relationship between the RMSE and the three parameters
+for the 1M dataset. \\
+
+\noindent Figure 10 indicates that the RMSE is negatively correlated
+with the matrix rank. Figure 11 indicates that the there is a positive correlation
+between the RMSE and the learning rate after lr$\geq$0.05. Figure 12 shows that 
+there is there is a positive correlation between the RMSE and the regularizers.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.90\textwidth]{bigrmserank.png}
+\caption{Relationship between RMSE and matrix rank for 1M dataset}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.90\textwidth]{bigrmselr.png}
+\caption{Relationship between RMSE and learning rate for 1M dataset}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.90\textwidth]{bigrmsereg.png}
+\caption{Relationship between RMSE and regularizer for 1M dataset}
+\end{figure}
+
+\noindent Based on the analyses above, we conclude that:
+\begin{enumerate}
+  \item Running time of the algorithm is negatively correlated with the matrix rank, and has no significant relationship with the learning rate or the regularizer. These results can be explained by the way we implemented the algorithm: since we used $k$ iterations during gradient descent, the running time should be dependent largely on the rank of the matrix.
+  \item RMSE is positively correlated with the matrix rank, and has no significant relationship with the learning rate or the regularizer. However, there exist the trends that as learning rate and the regularizer increase, the RMSE increases. This is especially true for larger datasets.
+\end{enumerate}
+
 \subsubsection*{Control Experiments}
+
+In order to explore the advantage of the regularized SVD over 
+collaborative-filtering techniques and the normal SVD technique
+we introduced in class, we implemented normal SVD using scipy, and
+applied both normal SVD and collaborative-filtering (implemented for the
+last assignment) on the same datasets as control experiments. We then
+compared the results of these controlled experiments against results from 
+regularized SVD experiments in the previous section.\\
+
+\noindent For collarborative filtering techniques (item-based and user-based), we set our threshold for nearest neighbor to be 10, and the number of nearest neighbor to be 25.\\
+
+\noindent For normal SVD technique, we kept 20\% of the energy of the diagonal matrix.\\
+
+\noindent For regularized SVD technique, we optimized both RMSE and running time by choosing matrix rank=30, learning rate=0.035, and regularizer=0.01.\\
+
+\noindent We then compared the RMSE and running time of the the four different approaches applied to the 100k test dataset. The results are shown in Table 1 below.
+
+\begin{table}[H]
+\caption{RMSE and running time of four recommendations approaches}
+$      $
+\centering
+\begin{tabular}{c c c c c}
+\hline\hline
+Methods & User-based & Item-based & Normal SVD & Regularized SVD \\ [0.5ex]
+\hline
+Running Time & 20.303 & 30.444 & 17.099 & 4.137 \\
+RMSE (Test) & 0.988 & 0.992 & 1.037 & 0.951 \\ [1ex]
+\hline
+\end{tabular}
+\end{table}
+
+\noindent Based on the table above, we found that the regularized SVD appraoch has both the shortest running time and the lowest RMSE. Although we ran normal SVD with Python instead of Pypy, we can still observe that it performs worse than regularized SVD in terms of RMSE. Therefore, we conclued that regularized SVD is the optimal approach among the four.
+
 
 \subsubsection*{Method of Research and Future Work}
 \begin{enumerate}
@@ -46,7 +213,8 @@ case, the function to be minimized is the RMSE.
   \item http://sifter.org/~simon/Journal/20061211.html
   \item http://www.timelydevelopment.com/demos/NetflixPrize.aspx
   \item http://alias-i.com/lingpipe/docs/api/com/aliasi/matrix/SvdMatrix.html
-  \item http://en.wikipedia.org/wiki/Stochastic_gradient_descent
+  \item http://en.wikipedia.org/wiki/Stochastic\_gradient\_descent
+  \item http://www.grouplens.org/node/73
 \end{enumerate}
 
 \end{document}
