@@ -41,9 +41,6 @@ class SvdMatrix:
     def __init__(self, trainfile, nusers, nmovies, r=30, lrate=0.035, regularizer=0.01, typefile=0):
         self.trainrats = []
         self.testrats = []
-        # self.M = [[None]*nmovies for i in range(nusers)]
-        # self.Mtest = [[None]*nmovies for i in range(nusers)]
-
                 
         self.nusers = nusers
         self.nmovies = nmovies
@@ -136,6 +133,7 @@ class SvdMatrix:
         oldtrainerr = 1000000.0
        
         for k in range(self.r):
+            print "k=", k
             for epoch in range(self.maxepochs):
                 trainerr = self.train(k)
                 
@@ -199,7 +197,9 @@ class SvdMatrix:
     def readtestlarger(self, fname):
         return self.readinratings(fname, self.testrats, splitter="::")
 
+
 if __name__ == "__main__":
+    #========= test SvdMatrix class on smallest MovieLENS dataset =========
     init = time.time()
     svd = SvdMatrix("ua.base", 943, 1682)
     svd.trainratings()
@@ -207,3 +207,4 @@ if __name__ == "__main__":
     svd.readtestsmaller("ua.test")
     print "rmsetest: ", svd.calcrmse(svd.testrats)
     print "time: ", time.time()-init
+

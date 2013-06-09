@@ -1,142 +1,210 @@
 # Daniel Alabi and Cody Wang
+# ======================================
+# SvdMatrix:
+# generates matrices U and V such that
+# U * V^T closely approximates
+# the original matrix (in this case, the utility
+# matrix M)
+# =======================================
+
 
 import math
 import random
 import time
 
-# remember to normalize by subtracting out averages
+"""
+Rating class. 
+Store every rating associated with a particular
+userid and movieid.
+================Optimization======================
+"""
+class Rating:
+    def __init__(self, userid, movieid, rating):
+        # to accomodate zero-indexing for matrices
+        self.uid = userid-1 
+        self.mid = movieid-1
+
+        self.rat = rating
+
 
 class SvdMatrix:
-    def __init__(self, trainfile, nusers, nmovies, r):
-        self.M = [[None]*nmovies for i in range(nusers)]
-        self.Mtest = [[None]*nmovies for i in range(nusers)]
-
-        self.Up = None
-        self.Vp = None
-        self.r = r
-        self.lrate = 0.001
-        self.regularizer = 0.015
+    """
+    trainfile -> name of file to train data against
+    nusers -> number of users in dataset
+    nmovies -> number of movies in dataset
+    r -> rank of approximation (for U and V)
+    lrate -> learning rate
+    regularizer -> regularizer
+    typefile -> 0 if for smaller MovieLens dataset
+                1 if for medium or larger MovieLens dataset
+    """
+    def __init__(self, trainfile, nusers, nmovies, r=30, lrate=0.035, regularizer=0.01, typefile=0):
+        self.trainrats = []
+        self.testrats = []
+                
         self.nusers = nusers
         self.nmovies = nmovies
 
-        # fill in utility matrix
-        # None for absent
-        # rating for present
-        f = open(trainfile)
+        if typefile == 0:
+            self.readtrainsmaller(trainfile)
+        elif typefile == 1:
+            self.readtrainlarger(trainfile)
+
+        # get average rating
+        avg = self.averagerating()
+        # set initial values in U, V using square root
+        # of average/rank
+        initval = math.sqrt(avg/r)
         
-        for line in f:
-            newline = [int(each) for each in line.split("\t")]
-            userid, movieid, rating = newline[0], newline[1], newline[2]
-            self.M[userid-1][movieid-1] = rating
-            
-    def predict(self, i, j, rVector, cVector, cacheEntry):
-        p = cacheEntry + rVector[i] * cVector[j]
-        if p > 5: 
-            p = 5
-        elif p < 1:
-            p = 1
-        return p
+        # U matrix
+        self.U = [[initval]*r for i in range(nusers)]
+        # V matrix -- easier to store and compute than V^T
+        self.V = [[initval]*r for i in range(nmovies)]
 
-    def relDiff(self, x, y):
-        return abs(x-y)/(abs(x)+abs(y))
+        self.r = r
+        self.lrate = lrate
+        self.regularizer = regularizer
+        self.minimprov = 0.001
+        self.maxepochs = 30            
 
-    def train(self, eps, rmseimprov, maxepoch=1000):
-        nusers = self.nusers
-        nmovies = self.nmovies
-        # number of entries in matrix
-        nEntries = nusers * nmovies
+    """
+    Returns the dot product of v1 and v2
+    """
+    def dotproduct(self, v1, v2):
+        return sum([v1[i]*v2[i] for i in range(len(v1))])
 
-        cache = [[0.0]*nmovies]*nusers
-
-        rVectors = [None]*self.r
-        cVectors = [None]*self.r
-
-        for k in range(self.r):
-            rVector = [1/math.sqrt(self.r)]*nusers
-            cVector = [1/math.sqrt(self.r)]*nmovies
-
-            rmselast = float("inf") # stores last rmse
-            for epoch in range(maxepoch):
-                sse = 0.0
-                for i in range(nusers):
-                    for j in range(nmovies):
-                        # ignore empty entries
-                        if self.M[i][j] == None: continue                        
-
-                        prediction = self.predict(i, j, rVector, cVector, cache[i][j])
-                        error = self.M[i][j] - prediction
-                        sse += error * error
-                        
-                        # get current row, column
-                        cRow = rVector[i]
-                        cColumn = cVector[j]
-
-                        rVector[i] += self.lrate * (error * cColumn - self.regularizer * cRow)
-                        cVector[j] += self.lrate * (error * cRow - self.regularizer * cColumn)
-
-                rmse = math.sqrt(sse/nEntries)
-                print "epoch=", epoch, "; rmse=", rmse, "; relDiff=", self.relDiff(rmse, rmselast)
-                if self.relDiff(rmse, rmselast) < eps or rmse < rmseimprov:
-                    print "Converged in epoch=", epoch, "; rmse=", rmse, \
-                        "; relative difference=", self.relDiff(rmse, rmselast)
-                    break
-                rmselast = rmse
-            print "order k=", k, "; rmse=", rmselast
-            rVectors[k] = rVector
-            cVectors[k] = cVector
-
-            for i in range(nusers):
-                for j in range(nmovies):
-                    cache[i][j] = self.predict(i, j, rVector, cVector, cache[i][j])
-
-        self.Up = rVectors
-        self.Vp = cVectors
-
+    """
+    Returns the estimated rating corresponding to userid for movieid
+    Ensures returns rating is in range [1,5]
+    """
     def calcrating(self, uid, mid):
-        p = sum([self.Up[i][uid]*self.Vp[i][mid] for i in range(self.r)])
+        p = self.dotproduct(self.U[uid], self.V[mid])
         if p > 5:
             p = 5
         elif p < 1:
             p = 1
         return p
 
+    """
+    Returns the average rating of the entire dataset
+    """
+    def averagerating(self):
+        avg = 0
+        n = 0
+        for i in range(len(self.trainrats)):
+            avg += self.trainrats[i].rat
+            n += 1
+        return float(avg/n)
+
+    """
+    Predicts the estimated rating for user with id i
+    for movie with id j
+    """
+    def predict(self, i, j):
+        return self.calcrating(i, j)
+
+    """
+    Trains the kth column in U and the kth row in
+    V^T
+    See docs for more details.
+    """
+    def train(self, k):
+        sse = 0.0
+        n = 0
+        for i in range(len(self.trainrats)):
+            # get current rating
+            crating = self.trainrats[i]
+            err = crating.rat - self.predict(crating.uid, crating.mid)
+            sse += err**2
+            n += 1
+
+            uTemp = self.U[crating.uid][k]
+            vTemp = self.V[crating.mid][k]
+
+            self.U[crating.uid][k] += self.lrate * (err*vTemp - self.regularizer*uTemp)
+            self.V[crating.mid][k] += self.lrate * (err*uTemp - self.regularizer*vTemp)
+        return math.sqrt(sse/n)
+
+    """
+    Trains the entire U matrix and the entire V (and V^T) matrix
+    """
+    def trainratings(self):        
+        # stub -- initial train error
+        oldtrainerr = 1000000.0
+       
+        for k in range(self.r):
+            print "k=", k
+            for epoch in range(self.maxepochs):
+                trainerr = self.train(k)
+                
+                # check if train error is still changing
+                if abs(oldtrainerr-trainerr) < self.minimprov:
+                    break
+                oldtrainerr = trainerr
+                print "epoch=", epoch, "; trainerr=", trainerr
+                
+    """
+    Calculates the RMSE using between arr
+    and the estimated values in (U * V^T)
+    """
     def calcrmse(self, arr):
         nusers = self.nusers
         nmovies = self.nmovies
         sse = 0.0
         total = 0
-        for i in range(nusers):
-            for j in range(nmovies):
-                if arr[i][j] == None: continue
-                total += 1
-                sse += (arr[i][j] - self.calcrating(i, j))**2
+        for i in range(len(arr)):
+            crating = arr[i]
+            sse += (crating.rat - self.calcrating(crating.uid, crating.mid))**2
+            total += 1
         return math.sqrt(sse/total)
 
-    def test(self, fname):
-        nusers = self.nusers
-        nmovies = self.nmovies
-
-        # for i in range(nusers):
-        #   for j in range(nmovies):
-        #     self.Mtest[i][j] = self.M[i][j]
-
+    """
+    Read in the ratings from fname and put in arr
+    Use splitter as delimiter in fname
+    """
+    def readinratings(self, fname, arr, splitter="\t"):
         f = open(fname)
 
         for line in f:
-            newline = [int(each) for each in line.split("\t")]
+            newline = [int(each) for each in line.split(splitter)]
             userid, movieid, rating = newline[0], newline[1], newline[2]
-            self.Mtest[userid-1][movieid-1] = rating                    
+            arr.append(Rating(userid, movieid, rating))
+
+        arr = sorted(arr, key=lambda rating: (rating.uid, rating.mid))
+        return len(arr)
         
-                                               
+    """
+    Read in the smaller train dataset
+    """
+    def readtrainsmaller(self, fname):
+        return self.readinratings(fname, self.trainrats, splitter="\t")
+        
+    """
+    Read in the large train dataset
+    """
+    def readtrainlarger(self, fname):
+        return self.readinratings(fname, self.trainrats, splitter="::")
+        
+    """
+    Read in the smaller test dataset
+    """
+    def readtestsmaller(self, fname):
+        return self.readinratings(fname, self.testrats, splitter="\t")
+                
+    """
+    Read in the larger test dataset
+    """
+    def readtestlarger(self, fname):
+        return self.readinratings(fname, self.testrats, splitter="::")
+
+
 if __name__ == "__main__":
+    #========= test SvdMatrix class on smallest MovieLENS dataset =========
     init = time.time()
-    svd = SvdMatrix("ua.base", 943, 1682, 10)
-    svd.train(.001, 0.01)
-    print "took: ", time.time()-init
+    svd = SvdMatrix("ua.base", 943, 1682)
+    svd.trainratings()
+    print "rmsetrain: ", svd.calcrmse(svd.trainrats)
+    svd.readtestsmaller("ua.test")
+    print "rmsetest: ", svd.calcrmse(svd.testrats)
+    print "time: ", time.time()-init
 
-    print svd.calcrmse(svd.M)
-    svd.test("ua.test")
-    print svd.calcrmse(svd.Mtest)
-
-# 2.76364392142
-# 2.7689925966

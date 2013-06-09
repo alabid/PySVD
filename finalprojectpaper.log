@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  8 JUN 2013 20:12
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  8 JUN 2013 23:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -228,175 +228,198 @@ Underfull \hbox (badness 10000) in paragraph at lines 16--19
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 35--39
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 40--46
-
- []
-
-LaTeX Font Info:    Try loading font information for U+msa on input line 48.
+LaTeX Font Info:    Try loading font information for U+msa on input line 35.
 (/Software/lion-local/texlive/2011/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 48.
+LaTeX Font Info:    Try loading font information for U+msb on input line 35.
 
 (/Software/lion-local/texlive/2011/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 47--50
+Underfull \hbox (badness 10000) in paragraph at lines 38--43
 
  []
 
 [1
 
 {/Software/lion-local/texlive/2011/texmf-var/fonts/map/pdftex/updmap/pdftex.map
-}]
-Underfull \hbox (badness 10000) in paragraph at lines 51--54
+}] <trainkcode.png, id=11, 721.69624pt x 106.3975pt>
+File: trainkcode.png Graphic file (type png)
+ <use trainkcode.png>
+Package pdftex.def Info: trainkcode.png used on input line 58.
+(pdftex.def)             Requested size: 350.99762pt x 51.74557pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 61--64
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 55--58
+Underfull \hbox (badness 10000) in paragraph at lines 65--66
 
  []
 
-<smalltimerank.png, id=8, 578.16pt x 433.62pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 74--79
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--86
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 87--90
+
+ []
+
+[2 <./trainkcode.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 91--94
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 95--98
+
+ []
+
+<smalltimerank.png, id=15, 578.16pt x 433.62pt>
 File: smalltimerank.png Graphic file (type png)
  <use smalltimerank.png>
-Package pdftex.def Info: smalltimerank.png used on input line 67.
-(pdftex.def)             Requested size: 350.99762pt x 263.24406pt.
- [2]
-<smalltimelr.png, id=14, 578.16pt x 433.62pt>
+Package pdftex.def Info: smalltimerank.png used on input line 107.
+(pdftex.def)             Requested size: 234.00238pt x 175.49603pt.
+
+<smalltimelr.png, id=17, 578.16pt x 433.62pt>
 File: smalltimelr.png Graphic file (type png)
  <use smalltimelr.png>
-Package pdftex.def Info: smalltimelr.png used on input line 73.
-(pdftex.def)             Requested size: 350.99762pt x 263.24406pt.
- [3 <./smalltimerank.png>] <smalltimereg.png, id=19, 578.16pt x 433.62pt>
+Package pdftex.def Info: smalltimelr.png used on input line 113.
+(pdftex.def)             Requested size: 234.00238pt x 175.49603pt.
+ [3 <./smalltimerank.png>] <smalltimereg.png, id=22, 578.16pt x 433.62pt>
 File: smalltimereg.png Graphic file (type png)
 
 <use smalltimereg.png>
-Package pdftex.def Info: smalltimereg.png used on input line 79.
-(pdftex.def)             Requested size: 350.99762pt x 263.24406pt.
- [4 <./smalltimelr.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 83--86
+Package pdftex.def Info: smalltimereg.png used on input line 119.
+(pdftex.def)             Requested size: 234.00238pt x 175.49603pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 123--126
 
  []
 
-<smallrmserank.png, id=24, 578.16pt x 433.62pt>
+[4 <./smalltimelr.png> <./smalltimereg.png>]
+<smallrmserank.png, id=28, 578.16pt x 433.62pt>
 File: smallrmserank.png Graphic file (type png)
  <use smallrmserank.png>
-Package pdftex.def Info: smallrmserank.png used on input line 95.
-(pdftex.def)             Requested size: 350.99762pt x 263.24406pt.
+Package pdftex.def Info: smallrmserank.png used on input line 135.
+(pdftex.def)             Requested size: 234.00238pt x 175.49603pt.
 
-[5 <./smalltimereg.png>] <smallrmselr.png, id=29, 578.16pt x 433.62pt>
+<smallrmselr.png, id=29, 578.16pt x 433.62pt>
 File: smallrmselr.png Graphic file (type png)
+ <use smallrmselr.png>
+Package pdftex.def Info: smallrmselr.png used on input line 141.
+(pdftex.def)             Requested size: 234.00238pt x 175.49603pt.
 
-<use smallrmselr.png>
-Package pdftex.def Info: smallrmselr.png used on input line 101.
-(pdftex.def)             Requested size: 350.99762pt x 263.24406pt.
- [6 <./smallrmserank.png>]
-<smallrmsereg.png, id=34, 578.16pt x 433.62pt>
+<smallrmsereg.png, id=30, 578.16pt x 433.62pt>
 File: smallrmsereg.png Graphic file (type png)
  <use smallrmsereg.png>
-Package pdftex.def Info: smallrmsereg.png used on input line 107.
-(pdftex.def)             Requested size: 350.99762pt x 263.24406pt.
- [7 <./smallrmselr.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 111--113
+Package pdftex.def Info: smallrmsereg.png used on input line 147.
+(pdftex.def)             Requested size: 234.00238pt x 175.49603pt.
+ [5 <./smallrmserank.png> <./smallrmselr.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 151--153
 
  []
 
-<bigtimerank.png, id=40, 578.16pt x 433.62pt>
+<bigtimerank.png, id=36, 578.16pt x 433.62pt>
 File: bigtimerank.png Graphic file (type png)
  <use bigtimerank.png>
-Package pdftex.def Info: bigtimerank.png used on input line 121.
-(pdftex.def)             Requested size: 350.99762pt x 263.24406pt.
- [8 <./smallrmsereg.png>] <bigtimelr.png, id=45, 578.16pt x 433.62pt>
+Package pdftex.def Info: bigtimerank.png used on input line 161.
+(pdftex.def)             Requested size: 234.00238pt x 175.49603pt.
+
+<bigtimelr.png, id=37, 578.16pt x 433.62pt>
 File: bigtimelr.png Graphic file (type png)
  <use bigtimelr.png>
-Package pdftex.def Info: bigtimelr.png used on input line 127.
-(pdftex.def)             Requested size: 350.99762pt x 263.24406pt.
-
-[9 <./bigtimerank.png>] <bigtimereg.png, id=50, 578.16pt x 433.62pt>
+Package pdftex.def Info: bigtimelr.png used on input line 167.
+(pdftex.def)             Requested size: 234.00238pt x 175.49603pt.
+ [6 <./smallrmsereg.png> <./bigtimerank.png>] <bigtimereg.png, id=43, 578.16pt 
+x 433.62pt>
 File: bigtimereg.png Graphic file (type png)
 
 <use bigtimereg.png>
-Package pdftex.def Info: bigtimereg.png used on input line 133.
-(pdftex.def)             Requested size: 350.99762pt x 263.24406pt.
- [10 <./bigtimelr.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 137--139
+Package pdftex.def Info: bigtimereg.png used on input line 173.
+(pdftex.def)             Requested size: 234.00238pt x 175.49603pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 177--179
 
  []
 
-<bigrmserank.png, id=55, 578.16pt x 433.62pt>
+<bigrmserank.png, id=44, 578.16pt x 433.62pt>
 File: bigrmserank.png Graphic file (type png)
  <use bigrmserank.png>
-Package pdftex.def Info: bigrmserank.png used on input line 147.
-(pdftex.def)             Requested size: 350.99762pt x 263.24406pt.
- [11 <./bigtimereg.png>] <bigrmselr.png, id=60, 578.16pt x 433.62pt>
+Package pdftex.def Info: bigrmserank.png used on input line 187.
+(pdftex.def)             Requested size: 234.00238pt x 175.49603pt.
+ [7 <./bigtimelr.png> <./bigtimereg.png>] <bigrmselr.png, id=51, 578.16pt x 433
+.62pt>
 File: bigrmselr.png Graphic file (type png)
- <use bigrmselr.png>
-Package pdftex.def Info: bigrmselr.png used on input line 153.
-(pdftex.def)             Requested size: 350.99762pt x 263.24406pt.
 
-[12 <./bigrmserank.png>] <bigrmsereg.png, id=65, 578.16pt x 433.62pt>
+<use bigrmselr.png>
+Package pdftex.def Info: bigrmselr.png used on input line 193.
+(pdftex.def)             Requested size: 234.00238pt x 175.49603pt.
+ <bigrmsereg.png, id=52, 578.16pt x 433.62pt>
 File: bigrmsereg.png Graphic file (type png)
 
 <use bigrmsereg.png>
-Package pdftex.def Info: bigrmsereg.png used on input line 159.
-(pdftex.def)             Requested size: 350.99762pt x 263.24406pt.
- [13 <./bigrmselr.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 171--178
-
- []
-
-[14 <./bigrmsereg.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 179--180
+Package pdftex.def Info: bigrmsereg.png used on input line 199.
+(pdftex.def)             Requested size: 234.00238pt x 175.49603pt.
+ [8 <./bigrmserank.png> <./bigrmselr.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 211--218
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 181--182
+Underfull \hbox (badness 10000) in paragraph at lines 219--220
+
+ []
+
+[9 <./bigrmsereg.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 221--222
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 183--184
+Underfull \hbox (badness 10000) in paragraph at lines 223--224
 
  []
 
 
-Overfull \hbox (11.89232pt too wide) in paragraph at lines 189--199
+Overfull \hbox (11.89232pt too wide) in paragraph at lines 229--239
  [] 
  []
 
-[15]
-Overfull \hbox (13.60414pt too wide) in paragraph at lines 215--216
+[10]
+Overfull \hbox (13.60414pt too wide) in paragraph at lines 259--260
 []\OT1/cmr/m/n/12 http://alias-i.com/lingpipe/docs/api/com/aliasi/matrix/SvdMat
 rix.html 
  []
 
-[16] (./finalprojectpaper.aux) ) 
+[11] (./finalprojectpaper.aux) ) 
 Here is how much of TeX's memory you used:
- 2246 strings out of 493633
- 31570 string characters out of 3143378
- 86945 words of memory out of 3000000
- 5508 multiletter control sequences out of 15000+200000
+ 2251 strings out of 493633
+ 31659 string characters out of 3143378
+ 87945 words of memory out of 3000000
+ 5512 multiletter control sequences out of 15000+200000
  9197 words of font info for 35 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
- 37i,7n,23p,394b,225s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 37i,7n,23p,394b,226s stack positions out of 5000i,500n,10000p,200000b,50000s
 </Software/lion-local/texlive/2011/texmf-dist/f
 onts/type1/public/amsfonts/cm/cmbx12.pfb></Software/lion-local/texlive/2011/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></Software/lion-local/texlive
-/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></Software/lion-local
-/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on finalprojectpaper.pdf (16 pages, 329813 bytes).
+/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></Software/lion-local
+/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></Software/li
+on-local/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on finalprojectpaper.pdf (11 pages, 354268 bytes).
 PDF statistics:
- 97 PDF objects out of 1000 (max. 8388607)
- 50 compressed objects within 1 object stream
+ 86 PDF objects out of 1000 (max. 8388607)
+ 42 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 61 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 66 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -12,7 +12,7 @@ from scipy.interpolate import spline
 if __name__ == "__main__":
     
     # ========= Code to Plot time against k ========= #
-    f = open("ranktime2")
+    f = open("data/ranktime2")
     kvalues = range(1, 51)
     lines = f.readlines()
     line1 = lines[0].split('\t')
@@ -33,7 +33,7 @@ if __name__ == "__main__":
     # ==================================================================#
     
     # ========= Code to Plot time against regularizers ========= #
-    f = open("regularizertime2")
+    f = open("data/regularizertime2")
     regularizers = [i*0.001 for i in range(1, 51)]
     lines = f.readlines()
     line1 = lines[0].split('\t')
@@ -54,7 +54,7 @@ if __name__ == "__main__":
     # ==================================================================#
     
     # ========= Code to Plot time against lrates ========= #
-    f2 = open("lratetime2")
+    f2 = open("data/lratetime2")
     lrate = [i*0.005 for i in range(1, 51)]
     lines = f2.readlines()
     line1 = lines[0].split('\t')
@@ -75,7 +75,7 @@ if __name__ == "__main__":
     # ==================================================================#
 
     # ========= Code to Plot rmse against k ========= #
-    f3 = open("ranktest2")
+    f3 = open("data/ranktest2")
     kvalues = range(1, 51)
     lines = f3.readlines()
     line1 = lines[0].split('\t')
@@ -100,7 +100,7 @@ if __name__ == "__main__":
    
 
     # ========= Code to Plot rmse against regularizers ========= #
-    f2 = open("regularizertest2")
+    f2 = open("data/regularizertest2")
     regularizers = [i*0.001 for i in range(1, 51)]
     lines = f2.readlines()
     line1 = lines[0].split('\t')
@@ -126,7 +126,7 @@ if __name__ == "__main__":
     
 
     # ========= Code to Plot rmse against lrate ========= # 
-    f3 = open("lratetest2")
+    f3 = open("data/lratetest2")
     lrate = [i*0.005 for i in range(1, 51)]
     lines = f3.readlines()
     line1 = lines[0].split('\t')
@@ -149,8 +149,8 @@ if __name__ == "__main__":
     plt.show()
     # ==================================================================#
 
-'''
 
+'''
 # =============Code to plot for larger-sized datasets=============#
 
 # Daniel Alabi and Cody Wang
@@ -163,7 +163,7 @@ from scipy.interpolate import spline
 if __name__ == "__main__":
     
     # ========= Code to Plot time against k ========= #
-    f = open("ranktime3")
+    f = open("data/ranktime3")
     kvalues = range(10, 31)
     lines = f.readlines()
     line1 = lines[0].split('\t')
@@ -184,7 +184,7 @@ if __name__ == "__main__":
     # ==================================================================#
     
     # ========= Code to Plot time against regularizers ========= #
-    f = open("regularizertime3")
+    f = open("data/regularizertime3")
     regularizers = [i*0.001 for i in range(1, 21)]
     lines = f.readlines()
     line1 = lines[0].split('\t')
@@ -205,7 +205,7 @@ if __name__ == "__main__":
     # ==================================================================#
     
     # ========= Code to Plot time against lrates ========= #
-    f2 = open("lratetime3")
+    f2 = open("data/lratetime3")
     lrate = [i*0.005 for i in range(1, 21)]
     lines = f2.readlines()
     line1 = lines[0].split('\t')
@@ -226,7 +226,7 @@ if __name__ == "__main__":
     # ==================================================================#
 
     # ========= Code to Plot rmse against k ========= #
-    f3 = open("ranktest3")
+    f3 = open("data/ranktest3")
     kvalues = range(10, 31)
     lines = f3.readlines()
     line1 = lines[0].split('\t')
@@ -247,7 +247,7 @@ if __name__ == "__main__":
    
 
     # ========= Code to Plot rmse against regularizers ========= #
-    f2 = open("regularizertest3")
+    f2 = open("data/regularizertest3")
     regularizers = [i*0.001 for i in range(1, 21)]
     lines = f2.readlines()
     line1 = lines[0].split('\t')
@@ -269,7 +269,7 @@ if __name__ == "__main__":
     
 
     # ========= Code to Plot rmse against lrate ========= # 
-    f3 = open("lratetest3")
+    f3 = open("data/lratetest3")
     lrate = [i*0.005 for i in range(1, 21)]
     lines = f3.readlines()
     line1 = lines[0].split('\t')
