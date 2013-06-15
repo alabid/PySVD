@@ -1,6 +1,0 @@
-Goals for today
-===============
-1. Comment all files appropriately.
-2. Make sure it works.
-3. Finish report.
-4. Turn in it, with data.

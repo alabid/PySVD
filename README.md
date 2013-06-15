@@ -1,59 +1,36 @@
-minefinal
-=========
+Daniel Alabi
+Cody Wang
+CS 324
 
-Big Goal: to make predictions on our movielens dataset using
-      Regularized SVD
-Smaller:
---------
-* Make program that emulates Gradient-Descent UV decomposition
-   suggested by Simon Funk.
-   Run on dataset. Make predictions.
-   Measure accuracy/speed.
-   
-* Make program using Scipy "normal" SVD decomposition. Fill
-   missing values with averages.
+Regularized SVD (Singular Value Decomposition) 
+==============================================
+Our project was to implement and analyze regularized SVD in python, 
+as suggested by Simon Funk and others [1,2].
 
-* Compare contrast results/approaches.
+For a more detailed explanation of the regularized SVD technique we use 
+and also some analysis, see our paper, finalproject.pdf.
 
+We have 5 main python files:
+i) regularizedSVD.py - contains implementation of SvdMatrix
+   that reads in ratings and trains the UV matrices based on these
+   ratings. Reports the final train RMSE.
+   Can also read in test ratings and report the final test RMSE.
+ii) plotsSVD.py - used to plot graphs used to pick the best
+    parameters.
+iii) writeplots.py - used to write results of varying different
+    parameters used in our SvdMatrix class to a file.
+iv) userbased.py - contains implementation of user-based
+     collaborative filtering technique. This is used as a control.
+     We compare how good/bad our technique is against this.
+v) itembased.py - contains implementation of item-based
+   collaborative filtering technique. Also used as a control.
+vi) scipySVDcontrol.py - contains implementation of SVD technique
+    using scipy SVD, filling in the partial utility matrices with
+    averages.
 
-Paper: Regularized SVD Method
-=============================
-* State the problem: Rank-k approximation. Why useful? How?
-  Method of research.
-   
-*  Intro.: Current approaches. Problems with current approaches.
-   SVD approach? Not scalable.
-   New method: Simon Funk's approach.
-   How we decided to call it "Regularized Gradient-Descent SVD".
-   Why regularized? Why Gradient-Descent?
-   How we understood the article.
-   How we dug deep into the article. 
-   What other articles told us about Simon Funk's approach.
-   Variables:
-   i) k
-   ii) learning rate -- vary as we increase? or as we decrease?
-   iii) regularize?
-   iv) Method of visitation
+See the contents of the above files for more information on how to
+run them.
 
-
-*  Experimental setup: RMSE calculation as a prediction. Why?
-
-*  Talk about our program: how it works? How it does what it does?
-   Refer heavily to Simon Funk's method.
-
-*  Talk about what other programs we implemented to test again
-   our new approach:
-   i) Test against recommendation sytem.
-   continual averages until RMSE under certain threshold
-   Why did we decide to use these methods as controls?
-
-*  Present results:
-   RMSE comparison for 2 methods for different k.
-   Time comparison for 2 methods for different k.
-   RMSE comparison for different variables.
-   
-* Conclusion:
-   What have you found so far using the movie dataset.
-
-
+[1] http://www.timelydevelopment.com/demos/NetflixPrize.aspx
+[2] http://sifter.org/~simon/Journal/20061211.html
 
